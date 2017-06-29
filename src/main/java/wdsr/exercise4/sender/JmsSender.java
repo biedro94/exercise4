@@ -7,7 +7,6 @@ import javax.jms.Connection;
 import javax.jms.Destination;
 import javax.jms.JMSException;
 import javax.jms.MapMessage;
-import javax.jms.MessageConsumer;
 import javax.jms.MessageProducer;
 import javax.jms.ObjectMessage;
 import javax.jms.Session;
@@ -28,7 +27,6 @@ public class JmsSender {
 	private Destination destination;
 	private Session session;
 	private MessageProducer producer;
-	private MessageConsumer consumer;
 	
 
 	public JmsSender(final String queueName, final String topicName) throws JMSException {
