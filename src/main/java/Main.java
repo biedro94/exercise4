@@ -14,7 +14,7 @@ import org.apache.activemq.ActiveMQConnectionFactory;
 
 public class Main {
 	
-	//private static final Logger log = LoggerFactory.getLogger(Main.class);
+	private static final Logger log = LoggerFactory.getLogger(Main.class);
 	
 	private static Connection connection;	
 	private static MessageProducer producer;
@@ -41,7 +41,7 @@ public class Main {
 			}
 			
 			long summarytime = System.currentTimeMillis()- startTime;
-			System.out.println("10000 persistent messages sent in {" + summarytime + "} milliseconds.\n");			
+			log.info("10000 persistent messages sent in {" + summarytime + "} milliseconds.\n");			
 					
 			startTime = System.currentTimeMillis();
 			for(Integer i=0; i<10000;i++){				
@@ -50,7 +50,7 @@ public class Main {
 				producer.send(message);
 			}
 			summarytime = System.currentTimeMillis()- startTime;
-			System.out.println("10000 persistent messages sent in {" + summarytime + "} milliseconds.\n");	
+			log.info("10000 persistent messages sent in {" + summarytime + "} milliseconds.\n");	
 			
 			producer.close();
 			session.close();
@@ -59,7 +59,6 @@ public class Main {
 			System.out.println("KONIEC");
 			
 		} catch (JMSException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
